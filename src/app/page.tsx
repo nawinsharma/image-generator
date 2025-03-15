@@ -34,8 +34,8 @@ export default function Home() {
 
       const data = await response.json();
       setImageUrl(`${data.imageUrl}`);
-    } catch (err: any) {
-      setError(err.message || 'Something went wrong');
+    } catch (err) {
+      setError('Something went wrong');
       console.error(err);
     } finally {
       setIsLoading(false);

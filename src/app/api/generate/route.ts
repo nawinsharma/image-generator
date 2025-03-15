@@ -28,14 +28,15 @@ export async function POST(request: NextRequest) {
     const response = await client.images.generate({
       model: "stability-ai/sdxl",
       response_format: "url",
-      extra_body: {
-        response_extension: "webp",
-        width: 1024,
-        height: 1024,
-        num_inference_steps: 30,
-        negative_prompt: "",
-        seed: -1,
-      },
+      // extra_body: {
+      //   response_extension: "webp",
+      //   width: 1024,
+      //   height: 1024,
+      //   num_inference_steps: 30,
+      //   negative_prompt: "",
+      //   seed: -1,
+      // },
+      // extr
       prompt: prompt,
     });
 
@@ -48,7 +49,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       imageUrl: response.data[0].url,
     });
-  } catch (error: any) {
+  } catch (error) {
     console.error("Error in API route:", error);
 
     return NextResponse.json(
